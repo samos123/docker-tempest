@@ -8,9 +8,9 @@ created with `docker export`.
 
 The following versions/tags are available:
 
-|   Version   |  Docker Hub  |  Raw Image  |
-|  ---------  |  ----------- | ----------  |
-|  master     |  latest      | link        |
+| Tempest Version  |  Docker Hub Tag  | Raw Image  |
+| ---------------- |  --------------- | ---------- |
+| master           |  [latest](https://hub.docker.com/r/samos123/tempest/) | [download](https://github.com/samos123/docker-tempest/releases/tag/latest) |
 
 
 ## Importing from Raw Image
@@ -19,8 +19,8 @@ The following steps can be used to import the downloaded Raw Image .tar.gz image
 
     gzip -d tempest.tar.gz
     docker load -i tempest.tar
+    imgid=$(docker images | grep "<none>" | awk '{ print $3 }')
     docker tag $imgid samos123/tempest
-
 
 ## Running tempest
 
