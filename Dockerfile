@@ -11,10 +11,12 @@ RUN git clone https://github.com/openstack/tempest.git /tempest
 
 WORKDIR /tempest
 
+RUN git checkout $version
 RUN pip install .
+
 
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /tempest /root/.cache
 
-RUN mkdir $HOME/thome
-WORKDIR $HOME/thome
+RUN mkdir $HOME/tempest-home
+WORKDIR $HOME/tempest-home

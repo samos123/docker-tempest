@@ -1,0 +1,14 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build -t samos123/tempest .
+  - mkdir tempest-home
+  - docker run -v tempest-home:/tempest-home samos123/tempest /bin/bash -c "tempest init"
+  - ls -lash tempest-home
+
+after_success:
+  - docker login --email=$DOCKER_EMAIL --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
+  - docker push samos123/tempest
