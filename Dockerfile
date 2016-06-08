@@ -1,9 +1,11 @@
 FROM ubuntu:xenial
 
 MAINTAINER Sam Stoelinga <sammiestoel@gmail.com>
+ENV version=master
 
 RUN apt-get update
-RUN apt-get install -y python-pip git python-setuptools libffi-dev libssl-dev
+RUN apt-get install -y python-pip git python-setuptools libffi-dev libssl-dev \
+                       iputils-ping vim curl
 
 RUN git clone https://github.com/openstack/tempest.git /tempest
 
