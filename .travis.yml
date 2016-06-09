@@ -1,14 +1,21 @@
 sudo: required
 
+env:
+  - REPO_NAME=samos123/tempest
+
 services:
   - docker
 
 script:
-  - docker build -t samos123/tempest .
+  - docker build -t $REPO_NAME:latest .
   - mkdir tempest-home
-  - docker run -v tempest-home:/tempest-home samos123/tempest /bin/bash -c "tempest init"
+  - docker run -v tempest-home:/tempest-home $REPO_NAME /bin/bash -c "tempest init"
   - ls -lash tempest-home
 
 after_success:
   - docker login --email=$DOCKER_EMAIL --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
-  - docker push samos123/tempest
+  - if [[ $TRAVIS_BRANCH = master ]]; then
+        docker push $REPO_NAME:latest;
+    else
+        docker push $REPO_NAME:$TRAVIS_BRANCH;
+    fi
