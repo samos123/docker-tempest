@@ -7,15 +7,18 @@ services:
   - docker
 
 script:
-  - docker build -t $REPO_NAME:latest .
+  - if [[ $TRAVIS_BRANCH = master ]]; then
+        export FULL_REPO=$REPO_NAME:latest;
+        docker build -t $REPO_NAME:latest .;
+    else
+        export FULL_REPO=$REPO_NAME:$TRAVIS_BRANCH;
+        docker build -t $REPO_NAME:$TRAVIS_BRANCH .;
+    fi
+  - echo $FULL_REPO
   - mkdir tempest-home
-  - docker run -v tempest-home:/tempest-home $REPO_NAME /bin/bash -c "tempest init"
+  - docker run -v tempest-home:/tempest-home $FULL_REPO /bin/bash -c "tempest init"
   - ls -lash tempest-home
 
 after_success:
   - docker login --email=$DOCKER_EMAIL --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
-  - if [[ $TRAVIS_BRANCH = master ]]; then
-        docker push $REPO_NAME:latest;
-    else
-        docker push $REPO_NAME:$TRAVIS_BRANCH;
-    fi
+  - docker push $FULL_REPO
