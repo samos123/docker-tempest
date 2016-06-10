@@ -10,8 +10,11 @@ The following versions/tags are available:
 
 | Tempest Version  |  Docker Hub Tag  | Raw Image  |
 | ---------------- |  --------------- | ---------- |
-| master           |  [latest](https://hub.docker.com/r/samos123/tempest/) | [download](https://github.com/samos123/docker-tempest/releases/tag/latest) |
+| master           |  [latest](https://hub.docker.com/r/samos123/tempest/tags/) | [download](https://github.com/samos123/docker-tempest/releases/tag/latest) |
+| 12.0.0           |  [12.0.0](https://hub.docker.com/r/samos123/tempest/tags/) | [download](https://github.com/samos123/docker-tempest/releases/tag/12.0.0) |
 
+Available on Docker Hub registry: [samos123/tempest](https://hub.docker.com/r/samos123/tempest/)  
+Source Code on Github: [samos123/docker-tempest](https://github.com/samos123/docker-tempest)
 
 ## Importing from Raw Image
 Note: This is only required if you're using the Raw Image.
