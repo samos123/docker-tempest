@@ -26,7 +26,7 @@ after_success:
 before_deploy:
   - mkdir build
   - docker save $FULL_REPO > build/tempest-$TRAVIS_BRANCH.tar
-  - gzip build/tempest-$TRAVIS_BRANCH.tar
+  - xz build/tempest-$TRAVIS_BRANCH.tar
   - ls -lash build
 
 deploy:

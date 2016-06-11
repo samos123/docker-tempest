@@ -20,7 +20,7 @@ Source Code on Github: [samos123/docker-tempest](https://github.com/samos123/doc
 Note: This is only required if you're using the Raw Image.
 The following steps can be used to import the downloaded Raw Image .tar.gz image file:
 
-    gzip -d tempest.tar.gz
+    xz -d tempest.tar.gz
     docker load -i tempest.tar
     imgid=$(docker images | grep "<none>" | awk '{ print $3 }')
     docker tag $imgid samos123/tempest

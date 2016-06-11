@@ -46,7 +46,7 @@
 
     "files":
         [
-        {"includePattern": "build/(.*tar\.gz)", "uploadPattern": "/$1",
+        {"includePattern": "build/(.*tar\.xz)", "uploadPattern": "/$1",
          "matrixParams": { "override": true }
         }
         ],
