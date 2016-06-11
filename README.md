@@ -1,5 +1,6 @@
 # Tempest Docker Image
 
+[![Build Status](https://travis-ci.org/samos123/docker-tempest.svg?branch=master)](https://travis-ci.org/samos123/docker-tempest)  
 Latest tempest master and releases available via Docker Hub or as .tar.xz to run
 tempest easily in both offline and online environments.
 Download the tempest.tar.xz and take it with you on an USB stick for those environments
@@ -41,9 +42,9 @@ For configuration please visit: [Tempest Configuration Documentation](http://doc
 
 ## Importing from Raw Image
 Note: This is only required if you're using the Raw Image.
-The following steps can be used to import the downloaded Raw Image .tar.gz image file:
+The following steps can be used to import the downloaded Raw Image .tar.xz image file:
 
-    xz -d tempest.tar.gz
+    xz -d tempest.tar.xz
     docker load -i tempest.tar
     imgid=$(docker images | grep "<none>" | awk '{ print $3 }')
     docker tag $imgid samos123/tempest
