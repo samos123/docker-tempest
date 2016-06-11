@@ -18,5 +18,5 @@ RUN pip install .
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /tempest /root/.cache
 
-RUN mkdir $HOME/tempest-home
-WORKDIR $HOME/tempest-home
+RUN mkdir /tempest-home
+WORKDIR /tempest-home

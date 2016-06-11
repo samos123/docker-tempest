@@ -1,29 +1,20 @@
 # Tempest Docker Image
 
-Tempest Docker Image to take with you on an USB stick for those environments
-where there isn't even the Iternet available. The image
-is published both on Docker Hub and a portable image file is
-published on GitHub Releases. The portable image file is 
-created with `docker export`.
+Latest tempest master and releases available via Docker Hub or as .tar.xz to run
+tempest easily in both offline and online environments.
+Download the tempest.tar.xz and take it with you on an USB stick for those environments
+without Docker Hub Registry access. The portable image file 
+is created with `docker export` and compressed with xz.
 
 The following versions/tags are available:
 
 | Tempest Version  |  Docker Hub Tag  | Raw Image  |
 | ---------------- |  --------------- | ---------- |
-| master           |  [latest](https://hub.docker.com/r/samos123/tempest/tags/) | [download](https://github.com/samos123/docker-tempest/releases/tag/latest) |
-| 12.0.0           |  [12.0.0](https://hub.docker.com/r/samos123/tempest/tags/) | [download](https://github.com/samos123/docker-tempest/releases/tag/12.0.0) |
+| master           |  [latest](https://hub.docker.com/r/samos123/tempest/tags/) | [download](https://bintray.com/samos123/generic/download_file?file_path=tempest-master.tar.xz) |
+| 12.0.0           |  [12.0.0](https://hub.docker.com/r/samos123/tempest/tags/) | [download](https://bintray.com/samos123/generic/download_file?file_path=tempest-12.0.0.tar.xz) |
 
 Available on Docker Hub registry: [samos123/tempest](https://hub.docker.com/r/samos123/tempest/)  
 Source Code on Github: [samos123/docker-tempest](https://github.com/samos123/docker-tempest)
-
-## Importing from Raw Image
-Note: This is only required if you're using the Raw Image.
-The following steps can be used to import the downloaded Raw Image .tar.gz image file:
-
-    xz -d tempest.tar.gz
-    docker load -i tempest.tar
-    imgid=$(docker images | grep "<none>" | awk '{ print $3 }')
-    docker tag $imgid samos123/tempest
 
 ## Running tempest
 
@@ -34,7 +25,7 @@ Create a tempest home directory which will be mounted by the container:
 Run the tempest container by mounting the created tempest home directory
 and executing bash inside the container:
 
-    docker run -v tempest-home:/thome -it samos123/tempest bash
+    docker run -v tempest-home:/tempest-home -it samos123/tempest bash
 
 Inside the tempst home initialize a new tempest configuration
 
@@ -47,3 +38,12 @@ After you've done so can run tempest tests with:
     ostestr --regex '(?!.*\[.*\bslow\b.*\])(^tempest\.(api|scenario))'
 
 For configuration please visit: [Tempest Configuration Documentation](http://docs.openstack.org/developer/tempest/configuration.html).
+
+## Importing from Raw Image
+Note: This is only required if you're using the Raw Image.
+The following steps can be used to import the downloaded Raw Image .tar.gz image file:
+
+    xz -d tempest.tar.gz
+    docker load -i tempest.tar
+    imgid=$(docker images | grep "<none>" | awk '{ print $3 }')
+    docker tag $imgid samos123/tempest
