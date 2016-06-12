@@ -2,17 +2,19 @@
 
 [![Build Status](https://travis-ci.org/samos123/docker-tempest.svg?branch=master)](https://travis-ci.org/samos123/docker-tempest)  
 Latest tempest master and releases available via Docker Hub or as .tar.xz to run
-tempest easily in both offline and online environments.
-Download the tempest.tar.xz and take it with you on an USB stick for those environments
-without Docker Hub Registry access. The portable image file 
-is created with `docker export` and compressed with xz.
+tempest easily in both offline and online environments. Download the tempest.tar.xz
+and take it with you on an USB stick for those environments without Docker
+Hub Registry access. The portable image file is created with
+`docker export` and compressed with xz.
 
 The following versions/tags are available:
 
 | Tempest Version  |  Docker Hub Tag  | Raw Image  |
 | ---------------- |  --------------- | ---------- |
-| master           |  [latest](https://hub.docker.com/r/samos123/tempest/tags/) | [download](https://bintray.com/samos123/generic/download_file?file_path=tempest-master.tar.xz) |
-| 12.0.0           |  [12.0.0](https://hub.docker.com/r/samos123/tempest/tags/) | [download](https://bintray.com/samos123/generic/download_file?file_path=tempest-12.0.0.tar.xz) |
+| master(Ubuntu 16.04) |  [latest](https://hub.docker.com/r/samos123/tempest/tags/) | [download(~130MB)](https://bintray.com/samos123/generic/download_file?file_path=tempest-master.tar.xz) |
+| 12.0.0(Ubuntu 16.04) |  [12.0.0](https://hub.docker.com/r/samos123/tempest/tags/) | [download(~130MB)](https://bintray.com/samos123/generic/download_file?file_path=tempest-12.0.0.tar.xz) |
+| master(Alpine 3.4) |  [latest](https://hub.docker.com/r/samos123/tempest/tags/) | [download(~43MB)](https://bintray.com/samos123/generic/download_file?file_path=tempest-alpine-master.tar.xz) |
+| 12.0.0(Alpine 3.4) |  [12.0.0](https://hub.docker.com/r/samos123/tempest/tags/) | [download(~43MB)](https://bintray.com/samos123/generic/download_file?file_path=tempest-alpine-12.0.0.tar.xz) |
 
 Available on Docker Hub registry: [samos123/tempest](https://hub.docker.com/r/samos123/tempest/)  
 Source Code on Github: [samos123/docker-tempest](https://github.com/samos123/docker-tempest)
