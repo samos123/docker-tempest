@@ -1,18 +1,16 @@
-FROM ubuntu:xenial
+FROM alpine:3.4
 
 MAINTAINER Sam Stoelinga <sammiestoel@gmail.com>
 ENV version=master
 
-RUN apt-get update && \
-    apt-get install -y python python-pip git python-setuptools libffi6 libffi-dev libssl1.0.0 libssl-dev \
-                       iputils-ping curl && \
+RUN apk add --update --no-cache python py-pip git python-dev libffi libffi-dev openssl openssl-dev \
+                  build-base iputils bash curl linux-headers && \
     git clone https://github.com/openstack/tempest.git /tempest && \
     cd /tempest && \
     git checkout $version && \
     pip install --no-cache-dir . && \
-    apt-get clean && \
-    apt-get remove -y --auto-remove python-setuptools python-dev make gcc libffi-dev libssl-dev && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /tempest /root/.cache
+    apk del build-base linux-headers python-dev libffi-dev openssl-dev && \
+    rm -rf /var/cache
 
 RUN mkdir /tempest-home
 WORKDIR /tempest-home
