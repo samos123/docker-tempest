@@ -1,7 +1,7 @@
 FROM alpine:3.4
 
 MAINTAINER Sam Stoelinga <sammiestoel@gmail.com>
-ENV version=master
+ENV version=12.0.0
 
 RUN apk add --update --no-cache python py-pip git python-dev libffi libffi-dev openssl openssl-dev \
                   build-base iputils bash curl linux-headers && \
