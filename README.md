@@ -42,6 +42,11 @@ After you've done so can run tempest tests with:
 
 For configuration please visit: [Tempest Configuration Documentation](http://docs.openstack.org/developer/tempest/configuration.html).
 
+Extra bonus command: Run tempest and generate HTML reports
+
+    ostestr --regex '(?!.*\[.*\bslow\b.*\])(^tempest\.(api|scenario))' --subunit >> tempest-results.log
+    subunit2html tempest-results.log tempest-results.html
+
 ## Importing from Raw Image
 Note: This is only required if you're using the Raw Image.
 The following steps can be used to import the downloaded Raw Image .tar.xz image file:
