@@ -44,7 +44,7 @@ For configuration please visit: [Tempest Configuration Documentation](http://doc
 
 Extra bonus command: Run tempest and generate HTML reports
 
-    ostestr --regex '(?!.*\[.*\bslow\b.*\])(^tempest\.(api|scenario))' --subunit >> tempest-results.log
+    ostestr --regex '(?!.*\[.*\bslow\b.*\])(^tempest\.(api|scenario))' --subunit --no-pretty >> tempest-results.log
     subunit2html tempest-results.log tempest-results.html
 
 ## Importing from Raw Image
