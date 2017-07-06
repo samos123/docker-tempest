@@ -20,8 +20,10 @@ script:
   - ls -lash tempest-home
 
 after_success:
-  - docker login --email=$DOCKER_EMAIL --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
-  - docker push $FULL_REPO
+  - if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
+      docker login --email=$DOCKER_EMAIL --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
+      docker push $FULL_REPO
+    fi
 
 before_deploy:
   - mkdir build
