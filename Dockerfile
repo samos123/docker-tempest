@@ -11,7 +11,7 @@ RUN apt-get update && \
     git checkout $version && \
     pip install --no-cache-dir . && \
     apt-get clean && \
-    apt-get remove -y --auto-remove python-setuptools python-dev make gcc libffi-dev libssl-dev && \
+    apt-get remove -y --auto-remove python-dev make gcc libffi-dev libssl-dev && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /tempest /root/.cache
 
 RUN mkdir /tempest-home
