@@ -1,7 +1,7 @@
 FROM ubuntu:xenial
 
 MAINTAINER Sam Stoelinga <sammiestoel@gmail.com>
-ENV version=master
+ENV version=12.1.0
 
 RUN apt-get update && \
     apt-get install -y python python-pip git python-setuptools libffi6 libffi-dev libssl1.0.0 libssl-dev \
